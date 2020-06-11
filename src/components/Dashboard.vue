@@ -25,7 +25,7 @@
       </v-col>
       <v-col cols="6">
         <v-card>
-          <doughnut-chart></doughnut-chart>
+          <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
         </v-card>
       </v-col>
     </v-row>
@@ -41,12 +41,12 @@
 
 <script>
 import BarChart from "../lib/charts/BarChart";
-import DoughnutChart from "../lib/charts/DoughnutChart";
+import PieChart from "../lib/charts/PieChart";
 import LineChart from "../lib/charts/LineChart";
 import colors from '../lib/constants/colors';
   export default {
     name: 'Dashboard',
-    components: {BarChart, DoughnutChart, LineChart},
+    components: {BarChart, PieChart, LineChart},
 
     data: () => ({
       dummyData: {
@@ -73,7 +73,7 @@ import colors from '../lib/constants/colors';
             }
           }
         },
-        doughnutChart: {
+        pieChart: {
           data: {
             labels: [],
             datasets: [
@@ -84,17 +84,7 @@ import colors from '../lib/constants/colors';
               }
             ]
           },
-          options: {
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true
-                  }
-                }
-              ]
-            }
-          }
+          options: {}
         },
         lineChart: {
           data: {},
@@ -153,9 +143,38 @@ import colors from '../lib/constants/colors';
             }
           ]
         }
+
+        this.dummyData.pieChart.data = {
+          datasets: [{
+            data: [
+              this.getRandomScalingFactor(),
+              this.getRandomScalingFactor(),
+              this.getRandomScalingFactor(),
+              this.getRandomScalingFactor(),
+              this.getRandomScalingFactor(),
+            ],
+            backgroundColor: [
+              colors.red,
+              colors.orange,
+              colors.yellow,
+              colors.green,
+              colors.blue,
+            ],
+            label: 'Dataset 1'
+          }],
+        labels: [
+          'Red',
+          'Orange',
+          'Yellow',
+          'Green',
+          'Blue'
+        ]}
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
+      },
+      getRandomScalingFactor () {
+        return Math.round(Math.random() * 100);
       }
     }
   }
