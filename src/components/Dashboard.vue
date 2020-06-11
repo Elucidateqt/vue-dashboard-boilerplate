@@ -3,17 +3,50 @@
     <v-row>
       <v-col cols="4">
         <v-card>
-
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>Unique Users:</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>{{uniqueUsers}}</h2>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
       <v-col cols="4">
         <v-card>
-          
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>Total Page Visits:</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>{{dummyData.pageVisits}}</h2>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
       <v-col cols="4">
         <v-card>
-          
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>Average Time on Page:</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>{{Math.floor(Math.random() * 6) + 2  }} Minutes</h2>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
     </v-row>
@@ -50,6 +83,9 @@ import colors from '../lib/constants/colors';
 
     data: () => ({
       dummyData: {
+        pageVisits: Math.floor(Math.random() * 1756) + 976,
+        timeOnPage: Math.floor(Math.random() * 6) + 2,
+
         barChart: {
           data: {},
           options: {
@@ -105,6 +141,11 @@ import colors from '../lib/constants/colors';
         },
       }
     }),
+    computed: {
+      uniqueUsers: function() {
+        return this.dummyData.pageVisits - (Math.floor(Math.random() * 460) + 201)
+      }
+    },
     mounted () {
       this.fillData()
     },
