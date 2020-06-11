@@ -20,7 +20,7 @@
     <v-row class="text-center">
       <v-col cols="6">
         <v-card>
-          <bar-chart></bar-chart>
+          <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
         </v-card>
       </v-col>
       <v-col cols="6">
@@ -51,17 +51,9 @@ import colors from '../lib/constants/colors';
     data: () => ({
       dummyData: {
         barChart: {
-          data: {
-            labels: [],
-            datasets: [
-              {
-                backgroundColor: "rgb(77, 186, 135)",
-                label: "Game Overs",
-                data: []
-              }
-            ]
-          },
+          data: {},
           options: {
+            responsive: true,
             scales: {
               yAxes: [
                 {
@@ -74,16 +66,7 @@ import colors from '../lib/constants/colors';
           }
         },
         pieChart: {
-          data: {
-            labels: [],
-            datasets: [
-              {
-                backgroundColor: "rgb(77, 186, 135)",
-                label: "Game Overs",
-                data: []
-              }
-            ]
-          },
+          data: {},
           options: {}
         },
         lineChart: {
@@ -162,13 +145,47 @@ import colors from '../lib/constants/colors';
             ],
             label: 'Dataset 1'
           }],
-        labels: [
-          'Red',
-          'Orange',
-          'Yellow',
-          'Green',
-          'Blue'
-        ]}
+          labels: [
+            'Red',
+            'Orange',
+            'Yellow',
+            'Green',
+            'Blue'
+          ]}
+        
+        this.dummyData.barChart.data = {
+			labels: ['1', '2', '3', '4', '5', '6', '7'],
+			datasets: [{
+				label: 'Dataset 1',
+				backgroundColor: colors.red,
+				borderColor: colors.red,
+				borderWidth: 1,
+				data: [
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor()
+				]
+			}, {
+				label: 'Dataset 2',
+				backgroundColor: colors.blue,
+				borderColor: colors.blue,
+				borderWidth: 1,
+				data: [
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+				]
+			}]
+
+		};
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
@@ -179,3 +196,6 @@ import colors from '../lib/constants/colors';
     }
   }
 </script>
+
+<style>
+</style>
