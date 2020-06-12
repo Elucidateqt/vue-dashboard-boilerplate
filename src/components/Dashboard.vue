@@ -102,22 +102,60 @@
         </v-card>
       </v-col>
       <v-col cols="6">
-        <v-card>
-          <v-container>
-            <v-row>
-              <v-col class="text-center">
-                <h2>Some Progress-Bars:</h2>
-              </v-col>
-            </v-row>
-            <v-row v-for="item of dummyData.progressBars" v-bind:key="item.index">
-              <v-col cols="12">
-                <v-progress-linear height="20px" :value="(item.current/item.max)*100">
-                  <strong>{{item.label}}: {{item.current}}/{{item.max}}</strong>
-                </v-progress-linear>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
+        <v-row>
+          <v-col cols="12">
+            <v-card>
+              <v-container>
+                <v-row>
+                  <v-col class="text-center">
+                    <h2>Some Progress-Bars:</h2>
+                  </v-col>
+                </v-row>
+                <v-row v-for="item of dummyData.progressBars" v-bind:key="item.index">
+                  <v-col cols="12">
+                    <v-progress-linear height="20px" :value="(item.current/item.max)*100">
+                      <strong>{{item.label}}: {{item.current}}/{{item.max}}</strong>
+                    </v-progress-linear>
+                  </v-col>
+                </v-row>
+              </v-container>
+            </v-card>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col cols="12">
+            <v-card>
+              <v-container>
+                <v-row>
+                  <v-col class="text-center">
+                    <h2>Some List-Items:</h2>
+                  </v-col>
+                </v-row>
+                <v-row>
+                  <v-list style="width: 100%">
+                    <template v-for="item in dummyData.listItems">
+                      <v-divider v-if="item.divider" :key="item.index"></v-divider>
+                      <v-list-item v-else :key="item.text">
+                        <v-list-item-avatar>
+                          <template v-if="item.done">
+                            &#10004;&#65039;
+                          </template>
+                          <template v-else>
+                            &#10060;
+                          </template>
+                        </v-list-item-avatar>
+                        <v-list-item-content>
+                          <v-list-item-title v-html="item.text"></v-list-item-title>
+                          <v-list-item-subtitle v-html="item.subText"></v-list-item-subtitle>
+                        </v-list-item-content>
+                      </v-list-item>
+                    </template>
+                  </v-list>
+                </v-row>
+              </v-container>
+            </v-card>
+          </v-col>
+        </v-row>
       </v-col>
     </v-row>
     <v-row>
@@ -180,6 +218,38 @@ import colors from '../lib/constants/colors';
             label: "Area 5",
             current: 11,
             max: 15
+          }
+        ],
+
+        listItems: [
+          {
+            text: "Area 1",
+            subText: "Practical course in Area 1",
+            done: true
+          },
+          {divider: true},
+          {
+            text: "Area 2",
+            subText: "Practical course in Area 1",
+            done: true
+          },
+          {divider: true},
+          {
+            text: "Area 3",
+            subText: "Practical course in Area 1",
+            done: true
+          },
+          {divider: true},
+          {
+            text: "Area 4",
+            subText: "Practical course in Area 1",
+            done: false
+          },
+          {divider: true},
+          {
+            text: "Area 5",
+            subText: "Practical course in Area 1",
+            done: false
           }
         ],
         
