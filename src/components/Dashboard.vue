@@ -363,15 +363,13 @@ import colors from '../lib/constants/colors';
       };
 
       this.dummyData.radarChart.data = {
-			labels: ['1', '2', '3', '4', '5', '6', '7'],
+			labels: ['1', '2', '3', '4', '5'],
 			datasets: [{
 				label: 'Dataset 1',
 				pointBackgroundColor: colors.red,
 				backgroundColor: this.changeColorAlpha(colors.red, "0.2"),
 				borderWidth: 1,
 				data: [
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
 					this.getRandomScalingFactor(),
 					this.getRandomScalingFactor(),
 					this.getRandomScalingFactor(),
@@ -388,9 +386,7 @@ import colors from '../lib/constants/colors';
 					this.getRandomScalingFactor(),
 					this.getRandomScalingFactor(),
 					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor()
 				]
 			}]
       };
