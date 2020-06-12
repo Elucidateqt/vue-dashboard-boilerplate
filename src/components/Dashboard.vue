@@ -6,12 +6,12 @@
           <v-container>
             <v-row>
               <v-col cols="12" class="text-center">
-                <h2>Unique Users:</h2>
+                <h2>Current Average:</h2>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12" class="text-center">
-                <h2>{{uniqueUsers}}</h2>
+                <h2>{{dummyData.average}}</h2>
               </v-col>
             </v-row>
           </v-container>
@@ -191,7 +191,7 @@ import colors from '../lib/constants/colors';
 
     data: () => ({
       dummyData: {
-        pageVisits: Math.floor(Math.random() * 1756) + 976,
+        average: ((Math.random() * 4) + 1).toFixed(2),
         timeOnPage: Math.floor(Math.random() * 6) + 2,
         progressBars: [
           {
