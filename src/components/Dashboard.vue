@@ -51,12 +51,17 @@
       </v-col>
     </v-row>
     <v-row class="text-center">
-      <v-col cols="6">
+      <v-col cols="4">
+        <v-card>
+          <radar-chart :chart-data="dummyData.radarChart.data"></radar-chart>
+        </v-card>
+      </v-col>
+      <v-col cols="4">
         <v-card>
           <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
         </v-card>
       </v-col>
-      <v-col cols="6">
+      <v-col cols="4">
         <v-card>
           <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
         </v-card>
@@ -76,10 +81,11 @@
 import BarChart from "../lib/charts/BarChart";
 import PieChart from "../lib/charts/PieChart";
 import LineChart from "../lib/charts/LineChart";
+import RadarChart from "../lib/charts/RadarChart";
 import colors from '../lib/constants/colors';
   export default {
     name: 'Dashboard',
-    components: {BarChart, PieChart, LineChart},
+    components: {BarChart, PieChart, LineChart, RadarChart},
 
     data: () => ({
       dummyData: {
@@ -87,6 +93,21 @@ import colors from '../lib/constants/colors';
         timeOnPage: Math.floor(Math.random() * 6) + 2,
 
         barChart: {
+          data: {},
+          options: {
+            responsive: true,
+            scales: {
+              yAxes: [
+                {
+                  ticks: {
+                    beginAtZero: true
+                  }
+                }
+              ]
+            }
+          }
+        },
+        radarChart: {
           data: {},
           options: {
             responsive: true,
@@ -194,7 +215,7 @@ import colors from '../lib/constants/colors';
             'Blue'
           ]}
         
-        this.dummyData.barChart.data = {
+      this.dummyData.barChart.data = {
 			labels: ['1', '2', '3', '4', '5', '6', '7'],
 			datasets: [{
 				label: 'Dataset 1',
@@ -225,8 +246,46 @@ import colors from '../lib/constants/colors';
 					this.getRandomScalingFactor(),
 				]
 			}]
+      };
 
-		};
+      this.dummyData.radarChart.data = {
+			labels: ['1', '2', '3', '4', '5', '6', '7'],
+			datasets: [{
+				label: 'Dataset 1',
+				pointBackgroundColor: colors.red,
+				backgroundColor: this.changeColorAlpha(colors.red, "0.2"),
+				borderWidth: 1,
+				data: [
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor()
+				]
+			}, {
+				label: 'Dataset 2',
+				pointBackgroundColor: colors.blue,
+				backgroundColor: this.changeColorAlpha(colors.blue, "0.2"),
+				borderWidth: 1,
+				data: [
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor(),
+				]
+			}]
+      };
+      
+      },
+      changeColorAlpha(rgbaString, alpha){
+        let match = rgbaString.match(/rgba\((\s*\d+\s*,\s*\d+\s*,\s*\d+\s*),\s*(\d+\.?\d*)\)/)[1]
+        let newColor = "rgba("+match+","+alpha+")"
+        return newColor
       },
       getRandomInt () {
         return Math.floor(Math.random() * (50 - 5 + 1)) + 5
