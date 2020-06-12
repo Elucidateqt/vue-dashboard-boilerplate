@@ -51,19 +51,67 @@
       </v-col>
     </v-row>
     <v-row class="text-center">
-      <v-col cols="4">
+      <v-col cols="6">
         <v-card>
           <radar-chart :chart-data="dummyData.radarChart.data"></radar-chart>
         </v-card>
       </v-col>
-      <v-col cols="4">
+      <v-col cols="6">
         <v-card>
           <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
         </v-card>
       </v-col>
-      <v-col cols="4">
+    </v-row>
+    <v-row>
+      <v-col cols="6">
         <v-card>
           <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
+        </v-card>
+      </v-col>
+      <v-col cols="6">
+        <v-card>
+          <v-container>
+            <v-row>
+              <v-col class="text-center">
+                <h2>Some Progress-Bars:</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-progress-linear height="20px" :value="(dummyData.progressBars.area1.current/dummyData.progressBars.area1.max)*100">
+                  <strong>Area 1: {{dummyData.progressBars.area1.current}}/{{dummyData.progressBars.area1.max}}</strong>
+                </v-progress-linear>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-progress-linear height="20px" :value="(dummyData.progressBars.area2.current/dummyData.progressBars.area2.max)*100">
+                  <strong>Area 2: {{dummyData.progressBars.area2.current}}/{{dummyData.progressBars.area2.max}}</strong>
+                </v-progress-linear>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-progress-linear height="20px" :value="(dummyData.progressBars.area3.current/dummyData.progressBars.area3.max)*100">
+                  <strong>Area 3: {{dummyData.progressBars.area3.current}}/{{dummyData.progressBars.area3.max}}</strong>
+                </v-progress-linear>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <v-progress-linear height="20px" :value="(dummyData.progressBars.area4.current/dummyData.progressBars.area4.max)*100">
+                  <strong>Area 4: {{dummyData.progressBars.area4.current}}/{{dummyData.progressBars.area4.max}}</strong>
+                </v-progress-linear>
+              </v-col>
+            </v-row>
+                     <v-row>
+              <v-col cols="12">
+                <v-progress-linear height="20px" :value="(dummyData.progressBars.area5.current/dummyData.progressBars.area5.max)*100">
+                  <strong>Area 5: {{dummyData.progressBars.area5.current}}/{{dummyData.progressBars.area5.max}}</strong>
+                </v-progress-linear>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
     </v-row>
@@ -91,7 +139,29 @@ import colors from '../lib/constants/colors';
       dummyData: {
         pageVisits: Math.floor(Math.random() * 1756) + 976,
         timeOnPage: Math.floor(Math.random() * 6) + 2,
-
+        progressBars:{
+          area1: {
+            current: 12,
+            max: 15
+          },
+          area2: {
+            current: 8,
+            max: 15
+          },
+          area3: {
+            current: 5,
+            max: 15
+          },
+          area4: {
+            current: 15,
+            max: 15
+          },
+          area5: {
+            current: 11,
+            max: 15
+          }
+        },
+        
         barChart: {
           data: {},
           options: {
