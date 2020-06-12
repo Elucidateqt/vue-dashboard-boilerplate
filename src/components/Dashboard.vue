@@ -90,12 +90,12 @@
           <v-container>
             <v-row>
               <v-col cols="12" class="text-center">
-                <h2>A neat Pie-Chart</h2>
+                <h2>A neat Doughnut-Chart</h2>
               </v-col>
             </v-row>
             <v-row>
               <v-col cols="12">
-                <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
+                <doughnut-chart :chart-data="dummyData.doughnutChart.data"></doughnut-chart>
               </v-col>
             </v-row>
           </v-container>
@@ -171,13 +171,13 @@
 
 <script>
 import BarChart from "../lib/charts/BarChart";
-import PieChart from "../lib/charts/PieChart";
+import DoughnutChart from "../lib/charts/DoughnutChart";
 import LineChart from "../lib/charts/LineChart";
 import RadarChart from "../lib/charts/RadarChart";
 import colors from '../lib/constants/colors';
   export default {
     name: 'Dashboard',
-    components: {BarChart, PieChart, LineChart, RadarChart},
+    components: {BarChart, DoughnutChart, LineChart, RadarChart},
 
     data: () => ({
       dummyData: {
@@ -236,7 +236,7 @@ import colors from '../lib/constants/colors';
             }
           }
         },
-        pieChart: {
+        doughnutChart: {
           data: {},
           options: {}
         },
@@ -303,7 +303,7 @@ import colors from '../lib/constants/colors';
           ]
         }
 
-        this.dummyData.pieChart.data = {
+        this.dummyData.doughnutChart.data = {
           datasets: [{
             data: [
               this.getRandomScalingFactor(),
@@ -322,11 +322,11 @@ import colors from '../lib/constants/colors';
             label: 'Dataset 1'
           }],
           labels: [
-            'Red',
-            'Orange',
-            'Yellow',
-            'Green',
-            'Blue'
+            'Area 1',
+            'Area 2',
+            'Area 3',
+            'Area 4',
+            'Area 5'
           ]}
         
       this.dummyData.barChart.data = {
