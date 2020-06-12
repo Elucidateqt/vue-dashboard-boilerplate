@@ -50,22 +50,55 @@
         </v-card>
       </v-col>
     </v-row>
-    <v-row class="text-center">
+    <v-row>
       <v-col cols="6">
         <v-card>
-          <radar-chart :chart-data="dummyData.radarChart.data"></radar-chart>
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>A neat Radar-Chart</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <radar-chart :chart-data="dummyData.radarChart.data"></radar-chart>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
       <v-col cols="6">
         <v-card>
-          <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>A neat Bar-Chart</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
     </v-row>
     <v-row>
       <v-col cols="6">
         <v-card>
-          <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>A neat Pie-Chart</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <pie-chart :chart-data="dummyData.pieChart.data"></pie-chart>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
       <v-col cols="6">
@@ -118,7 +151,18 @@
     <v-row>
       <v-col cols="12">
         <v-card>
-          <line-chart :chart-data="dummyData.lineChart.data" :options="dummyData.lineChart.options"></line-chart>
+          <v-container>
+            <v-row>
+              <v-col cols="12" class="text-center">
+                <h2>A neat Line-Chart</h2>
+              </v-col>
+            </v-row>
+            <v-row>
+              <v-col cols="12">
+                <line-chart :chart-data="dummyData.lineChart.data" :options="dummyData.lineChart.options"></line-chart>
+              </v-col>
+            </v-row>
+          </v-container>
         </v-card>
       </v-col>
     </v-row>
