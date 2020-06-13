@@ -124,7 +124,7 @@
             </v-row>
             <v-row>
               <v-col cols="12">
-                <bar-chart :chart-data="dummyData.barChart.data"></bar-chart>
+                <bar-chart :chart-data="dummyData.barChart.data" :options="dummyData.barChart.options"></bar-chart>
               </v-col>
             </v-row>
           </v-container>
@@ -157,7 +157,6 @@ import colors from '../lib/constants/colors';
   export default {
     name: 'Dashboard',
     components: {BarChart, RadarChart},
-
     data: () => ({
       dummyData: {
         overallECTS: Math.floor(Math.random() * 150) + 1,
@@ -225,10 +224,30 @@ import colors from '../lib/constants/colors';
             scales: {
               yAxes: [
                 {
+                  type: 'linear', // only linear but allow scale type registration. This allows extensions to exist solely for log scale for instance
+                  display: true,
+                  position: 'left',
+                  id: 'y-axis-1',
+                  scaleLabel: {
+                    labelString: "ECTS",
+                    display: true
+                  },
                   ticks: {
                     beginAtZero: true
                   }
-                }
+                },
+              ],
+              xAxes: [
+                {
+                  display: true,
+                  scaleLabel: {
+                    labelString: "Semester",
+                    display: true
+                  },
+                  ticks: {
+                    beginAtZero: true
+                  }
+                },
               ]
             }
           }
@@ -237,15 +256,6 @@ import colors from '../lib/constants/colors';
           data: {},
           options: {
             responsive: true,
-            scales: {
-              yAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true
-                  }
-                }
-              ]
-            }
           }
         },
         doughnutChart: {
@@ -270,38 +280,40 @@ import colors from '../lib/constants/colors';
     },
     mounted () {
       this.fillData()
+      console.log(this.getRandomScalingFactor())
     },
     methods: {
       fillData () {
       this.dummyData.barChart.data = {
 			labels: ['1', '2', '3', '4', '5', '6', '7'],
 			datasets: [{
-				label: 'Dataset 1',
+        label: 'ECTS',
+        yAxisID: 'y-axis-1',
 				backgroundColor: colors.red,
 				borderColor: colors.red,
 				borderWidth: 1,
 				data: [
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor()
+					this.getRandomScalingFactor() *0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3
 				]
 			}, {
-				label: 'Dataset 2',
+        label: 'Avg. Performance',
 				backgroundColor: colors.blue,
 				borderColor: colors.blue,
 				borderWidth: 1,
 				data: [
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
+					this.getRandomScalingFactor()*0.3,
 				]
 			}]
       };
