@@ -5,7 +5,7 @@
         <v-row>
           <v-col cols="12">
             <v-progress-linear height="40px" :value="(dummyData.overallECTS/180)*100">
-              <strong>Overall ECTS: {{dummyData.overallECTS}}/180</strong>
+              <strong style="color: #fefefe">Overall ECTS: {{dummyData.overallECTS}}/180</strong>
             </v-progress-linear>
           </v-col>
         </v-row>
@@ -22,7 +22,7 @@
             </v-row>
             <v-row>
               <v-col cols="12" class="text-center">
-                <h2>{{dummyData.semester}}</h2>
+                <h2>7</h2>
               </v-col>
             </v-row>
           </v-container>
@@ -73,7 +73,7 @@
             <v-row v-for="item of dummyData.progressBars" v-bind:key="item.index">
               <v-col cols="12">
                 <v-progress-linear height="20px" :value="(item.current/item.max)*100">
-                  <strong>{{item.label}}: {{item.current}}/{{item.max}}</strong>
+                  <strong style="color: #fefefe">{{item.label}}: {{item.current}}/{{item.max}}</strong>
                 </v-progress-linear>
               </v-col>
             </v-row>
@@ -165,27 +165,27 @@ import colors from '../lib/constants/colors';
         timeOnPage: Math.floor(Math.random() * 6) + 2,
         progressBars: [
           {
-            label: "Area 1",
+            label: "Applied CS",
             current: 12,
             max: 15
           },
           {
-            label: "Area 2",
+            label: "Theoretical CS",
             current: 8,
             max: 15
           },
           {
-            label: "Area 3",
+            label: "Hardware & Systems",
             current: 5,
             max: 15
           },
           {
-            label: "Area 4",
+            label: "Green IT",
             current: 15,
             max: 15
           },
           {
-            label: "Area 5",
+            label: "AI",
             current: 11,
             max: 15
           }
