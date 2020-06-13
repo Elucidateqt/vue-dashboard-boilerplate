@@ -7,7 +7,7 @@
     >
       <v-row>
         <v-col cols="12" class="text-center">
-          <h1>Vue Dashboard-Boilerplate</h1>
+          <h1>Student Dashboard</h1>
         </v-col>
       </v-row>
     </v-app-bar>
