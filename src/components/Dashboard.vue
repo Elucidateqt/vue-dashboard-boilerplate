@@ -193,7 +193,7 @@ import colors from '../lib/constants/colors';
 
         listItems: [
           {
-            text: "practical course",
+            text: "Practical course",
             subText: "Take 1 practical course in any specialization",
             done: true
           },
@@ -318,11 +318,11 @@ import colors from '../lib/constants/colors';
       };
 
       this.dummyData.radarChart.data = {
-			labels: ['1', '2', '3', '4', '5'],
+			labels: ['Applied CS', 'Theoretical CS', 'Hardware & Systems', 'Green IT', 'AI'],
 			datasets: [{
-				label: 'Dataset 1',
+				label: '# ECTS',
 				pointBackgroundColor: colors.red,
-				backgroundColor: this.changeColorAlpha(colors.red, "0.2"),
+				backgroundColor: this.changeColorAlpha(colors.red, "0.4"),
 				borderWidth: 1,
 				data: [
 					this.getRandomScalingFactor(),
@@ -332,9 +332,9 @@ import colors from '../lib/constants/colors';
 					this.getRandomScalingFactor()
 				]
 			}, {
-				label: 'Dataset 2',
+				label: 'Avg. Performance',
 				pointBackgroundColor: colors.blue,
-				backgroundColor: this.changeColorAlpha(colors.blue, "0.2"),
+				backgroundColor: this.changeColorAlpha(colors.blue, "0.4"),
 				borderWidth: 1,
 				data: [
 					this.getRandomScalingFactor(),
