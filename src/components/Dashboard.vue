@@ -193,26 +193,26 @@ import colors from '../lib/constants/colors';
 
         listItems: [
           {
-            text: "Area 1",
-            subText: "Practical course in Area 1",
+            text: "practical course",
+            subText: "Take 1 practical course in any specialization",
             done: true
           },
           {divider: true},
           {
-            text: "Area 2",
-            subText: "Practical course in Area 1",
+            text: "Seminar 1",
+            subText: "Take first seminar in any specialization",
             done: true
           },
           {divider: true},
           {
-            text: "Area 3",
-            subText: "Practical course in Area 1",
+            text: "Seminar 2",
+            subText: "Take second seminar in any specialization",
             done: true
           },
           {divider: true},
           {
-            text: "Area 4",
-            subText: "Practical course in Area 1",
+            text: "Thesis",
+            subText: "Write your final thesis",
             done: false
           },
         ],
@@ -280,7 +280,6 @@ import colors from '../lib/constants/colors';
     },
     mounted () {
       this.fillData()
-      console.log(this.getRandomScalingFactor())
     },
     methods: {
       fillData () {
