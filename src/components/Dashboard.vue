@@ -119,7 +119,7 @@
           <v-container>
             <v-row>
               <v-col cols="12" class="text-center">
-                <h2>Semester history:</h2>
+                <h2>Workload vs Performance:</h2>
               </v-col>
             </v-row>
             <v-row>
