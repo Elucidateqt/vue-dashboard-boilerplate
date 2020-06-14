@@ -299,7 +299,7 @@ import colors from '../lib/constants/colors';
 				borderColor: colors.red,
 				borderWidth: 1,
 				data: [
-					this.getRandomScalingFactor() *0.3,
+					this.getRandomScalingFactor()*0.3,
 					this.getRandomScalingFactor()*0.3,
 					this.getRandomScalingFactor()*0.3,
 					this.getRandomScalingFactor()*0.3,
@@ -334,9 +334,11 @@ import colors from '../lib/constants/colors';
         ['AI',this.dummyData.radarChartValues.ai]],
 			datasets: [{
 				label: 'Total number of ECTS',
-				pointBackgroundColor: colors.blue,
-				backgroundColor: this.changeColorAlpha(colors.blue, "0.4"),
-				borderWidth: 1,
+        pointBackgroundColor: colors.blue,
+        borderColor: colors.blue,
+        //transparent area as to not imply quadratic relationships of linear data
+				backgroundColor: this.changeColorAlpha(colors.blue, "0"),
+				borderWidth: 4,
 				data: [
           this.dummyData.radarChartValues.appliedCS,
 					this.dummyData.radarChartValues.theoreticalCS,
