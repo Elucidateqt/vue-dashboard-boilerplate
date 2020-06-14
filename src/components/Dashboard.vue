@@ -334,8 +334,8 @@ import colors from '../lib/constants/colors';
         ['AI',this.dummyData.radarChartValues.ai]],
 			datasets: [{
 				label: 'Total number of ECTS',
-				pointBackgroundColor: colors.red,
-				backgroundColor: this.changeColorAlpha(colors.red, "0.4"),
+				pointBackgroundColor: colors.blue,
+				backgroundColor: this.changeColorAlpha(colors.blue, "0.4"),
 				borderWidth: 1,
 				data: [
           this.dummyData.radarChartValues.appliedCS,
