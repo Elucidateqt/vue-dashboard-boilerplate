@@ -163,6 +163,13 @@ import colors from '../lib/constants/colors';
         average: ((Math.random() * 4) + 1).toFixed(2),
         semester: Math.floor(Math.random() * 12) + 1,
         timeOnPage: Math.floor(Math.random() * 6) + 2,
+        radarChartValues: {
+          appliedCS: 0,
+          theoreticalCS: 0,
+          harwareSystems: 0,
+          greenIT: 0,
+          ai: 0,
+        },
         progressBars: [
           {
             label: "Applied CS",
@@ -316,32 +323,26 @@ import colors from '../lib/constants/colors';
 				]
 			}]
       };
-
+      this.dummyData.radarChartValues.appliedCS = this.getRandomScalingFactor()
+      this.dummyData.radarChartValues.theoreticalCS = this.getRandomScalingFactor()
+      this.dummyData.radarChartValues.harwareSystems = this.getRandomScalingFactor()
+      this.dummyData.radarChartValues.greenIT = this.getRandomScalingFactor()
+      this.dummyData.radarChartValues.ai = this.getRandomScalingFactor()
       this.dummyData.radarChart.data = {
-			labels: ['Applied CS', 'Theoretical CS', 'Hardware & Systems', 'Green IT', 'AI'],
+      labels: [['Applied CS ',this.dummyData.radarChartValues.appliedCS], ['Theoretical CS',this.dummyData.radarChartValues.theoreticalCS] , 
+        ['Hardware & Systems',this.dummyData.radarChartValues.harwareSystems], ['Green IT',this.dummyData.radarChartValues.greenIT],
+        ['AI',this.dummyData.radarChartValues.ai]],
 			datasets: [{
-				label: '# ECTS',
+				label: 'Total number of ECTS',
 				pointBackgroundColor: colors.red,
 				backgroundColor: this.changeColorAlpha(colors.red, "0.4"),
 				borderWidth: 1,
 				data: [
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor()
-				]
-			}, {
-				label: 'Avg. Performance',
-				pointBackgroundColor: colors.blue,
-				backgroundColor: this.changeColorAlpha(colors.blue, "0.4"),
-				borderWidth: 1,
-				data: [
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor(),
-					this.getRandomScalingFactor()
+          this.dummyData.radarChartValues.appliedCS,
+					this.dummyData.radarChartValues.theoreticalCS,
+					this.dummyData.radarChartValues.harwareSystems,
+					this.dummyData.radarChartValues.greenIT,
+					this.dummyData.radarChartValues.ai
 				]
 			}]
       };
